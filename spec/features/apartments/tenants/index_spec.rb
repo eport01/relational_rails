@@ -17,6 +17,9 @@ RSpec.describe 'Apartments tenants index page' do
 
         expect(page).to have_content(@tenant_1.tenant_name)
         expect(page).to have_content(@tenant_1.income)
+        expect(page).to have_content(@tenant_2.tenant_name)
+        expect(page).to have_content(@tenant_3.tenant_name)
+
       end
     end
   end
