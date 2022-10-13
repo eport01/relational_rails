@@ -1,0 +1,4 @@
+<h1><%= @apartment.apt_name %></h1>
+<% @tenants.each do |tenant|%>
+  <%= link_to tenant.tenant_name, "/tenants/#{tenant.id}"%>
+<% end %>
