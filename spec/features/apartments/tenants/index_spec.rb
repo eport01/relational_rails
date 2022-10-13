@@ -8,12 +8,15 @@ RSpec.describe 'Apartments tenants index page' do
           city: "Saint Paul", state: "MN", pet_friendly: true
         )
         @tenant_1 = @apartment_1.tenants.create!(tenant_name: "Stevie Nicks", income: 100000, pets: true, occupation: "singer", rent_price: 2500, apartment_id: 1)
+        @tenant_2 = @apartment_1.tenants.create!(tenant_name: "Mick Fleetwood", income: 650000, pets: false, occupation: "drummer", rent_price: 3600, apartment_id: 1)
+        @tenant_3 = @apartment_1.tenants.create!(tenant_name: "John McVie", income: 450000, pets: true, occupation: "guitarist", rent_price: 4000, apartment_id: 1)
 
       end
       it 'I see each tenant in that apartment and their attributes' do 
         visit "/apartments/#{@apartment_1.id}/tenants"
 
         expect(page).to have_content(@tenant_1.tenant_name)
+        expect(page).to have_content(@tenant_1.income)
       end
     end
   end
