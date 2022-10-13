@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   post '/apartments', to: 'apartments#create'
 
   get '/tenants', to: 'tenants#index'
+  get '/tenants/:id', to: 'tenants#show'
 
 end

@@ -18,4 +18,8 @@ class TenantsController < ApplicationController
     redirect_to '/tenants'
   end
 
+  def show 
+    @tenant = Tenant.find(params[:id])
+  end
+
 end
