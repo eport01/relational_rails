@@ -27,4 +27,8 @@ class ApartmentsController < ApplicationController
   def show 
     @apartment = Apartment.find(params[:id])
   end
+
+  def most_recently_created
+    
+  end
 end

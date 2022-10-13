@@ -5,28 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-apartment_1 = Apartment.create!(apt_name: "Riverview Apartments", 
-  has_wd: true, 
-  unit_count: 100, 
-  city: "Saint Paul", 
-  state: "MN", 
-  pet_friendly: true
-)
-apartment_2 = Apartment.create!(apt_name: "Cruze Apartments", 
-  has_wd: true, 
-  unit_count: 50, 
-  city: "Denver", 
-  state: "CO", 
-  pet_friendly: true
-)
-
-apartment_3 = Apartment.create!(apt_name: "The Walter", 
-  has_wd: false, 
-  unit_count: 35, 
-  city: "Aurora", 
-  state: "CO", 
-  pet_friendly: false
-)
+apartment_1 = Apartment.create!(apt_name: "Riverview Apartments", has_wd: true, unit_count: 100, city: "Saint Paul", state: "MN", pet_friendly: true)
+apartment_2 = Apartment.create!(apt_name: "Cruze Apartments", has_wd: true, unit_count: 50, city: "Denver", state: "CO", pet_friendly: true)
+apartment_3 = Apartment.create!(apt_name: "The Walter", has_wd: false, unit_count: 35, city: "Aurora", state: "CO", pet_friendly: false)
 
 tenant_1 = apartment_1.tenants.create!(tenant_name: "Stevie Nicks", income: 100000, pets: true, occupation: "singer", rent_price: 2500, apartment_id: 1)
 tenant_2 = apartment_1.tenants.create!(tenant_name: "Mick Fleetwood", income: 650000, pets: false, occupation: "drummer", rent_price: 3600, apartment_id: 1)
