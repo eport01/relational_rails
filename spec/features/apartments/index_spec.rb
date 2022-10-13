@@ -59,7 +59,6 @@ RSpec.describe 'apartments index page', type: :feature do
         )
 
         visit "/apartments/#{apartment_1.id}"
-        save_and_open_page
         expect(page).to have_content(apartment_1.apt_name)
         expect(page).to have_no_content(apartment_2.apt_name)
         expect(page).to have_content("Washer/Dryer In-Unit? #{apartment_1.has_wd}")
