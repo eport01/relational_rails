@@ -24,7 +24,7 @@ class ApartmentsController < ApplicationController
     redirect_to '/apartments'
   end
 
-  def list 
+  def show 
     @apartment = Apartment.find(params[:id])
   end
 end
