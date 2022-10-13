@@ -26,6 +26,8 @@ RSpec.describe 'apartments index page', type: :feature do
           state: "CO", 
           pet_friendly: false
         )
+
+        # tenant_1 = apartment_1.tenants.create!(tenant_name: "Stevie Nicks", income: 100000, pets: true, occupation: "singer", rent_price: 2500, apartment_id: 1)
         visit '/apartments'
         expect(page).to have_content(apartment_1.apt_name)
         expect(page).to have_content(apartment_2.apt_name)

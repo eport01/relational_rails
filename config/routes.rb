@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   get '/apartments/:id', to: 'apartments#list'
   get '/apartments/new', to: 'apartments#new'
   post '/apartments', to: 'apartments#create'
+
+  get '/tenants', to: 'tenants#index'
+
 end
