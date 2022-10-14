@@ -17,9 +17,7 @@ RSpec.describe 'apartments show page', type: :feature do
         expect(page).to have_no_content("Tenants: #{@apartment_2.tenants.length}")
 
       end
-    end
 
-    describe 'When I visit /apartments/:id' do 
       it 'I see the apartment with that id including the apartments attributes' do 
         visit "/apartments/#{@apartment_1.id}"
         expect(page).to have_content(@apartment_1.apt_name)
@@ -30,7 +28,14 @@ RSpec.describe 'apartments show page', type: :feature do
         expect(page).to have_content("State: #{@apartment_1.state}")
         expect(page).to have_content("Pet Friendly? #{@apartment_1.pet_friendly}")
       end
+
+      it 'I see a link to that apartments tenants show page' do 
+        visit "/apartments/#{@apartment_1.id}"
+        click_on('Tenants for this Apartment')
+        expect(current_path).to eq("/apartments/#{@apartment_1.id}/tenants")
+      end
     end
+
 
   end
 end

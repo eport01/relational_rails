@@ -2,7 +2,7 @@
 <h1>Apartments List</h1>
 
 <% @apartments.each do |apartment| %>
-  <p><h3><a href= '/apartments/:id'> <%= apartment.apt_name %> </a></h3></p>
+  <p><h3><a href="/apartments/<%= apartment.id %>"> <%= apartment.apt_name %> </a></h3></p>
   <%= apartment.created_at %>
 
 <% end %>
