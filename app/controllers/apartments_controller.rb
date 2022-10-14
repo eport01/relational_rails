@@ -1,6 +1,7 @@
 class ApartmentsController < ApplicationController
   def index
-    @apartments= Apartment.all 
+    @apartments= Apartment.all  
+    @apartments.order(:created_at)
   end
 
   def new 
@@ -28,7 +29,4 @@ class ApartmentsController < ApplicationController
     @apartment = Apartment.find(params[:id])
   end
 
-  def most_recently_created
-    
-  end
 end
