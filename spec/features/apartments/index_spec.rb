@@ -27,7 +27,10 @@ RSpec.describe 'apartments index page', type: :feature do
         visit '/apartments'
         
         expect("Riverview Apartments").to appear_before("Cruze Apartments")
-      
+        expect(page).to have_content(@apartment_1.created_at)
+        expect(page).to have_content(@apartment_2.created_at)
+        expect(page).to have_content(@apartment_3.created_at)
+
       end
     end
     
