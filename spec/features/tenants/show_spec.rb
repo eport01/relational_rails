@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe 'Apartments tenants index page' do 
+RSpec.describe 'tenants show page', type: :feature do 
   describe 'as a visitor' do 
-    describe 'when I visit /apartments/:apartment_id/tenants' do 
+    describe 'when i visit /tenants/:id' do 
       before :each do 
         @apartment_1 = Apartment.create!(apt_name: "Riverview Apartments", has_wd: true, unit_count: 100, 
           city: "Saint Paul", state: "MN", pet_friendly: true
@@ -12,18 +12,14 @@ RSpec.describe 'Apartments tenants index page' do
         @tenant_3 = @apartment_1.tenants.create!(tenant_name: "John McVie", income: 450000, pets: true, occupation: "guitarist", rent_price: 4000, apartment_id: 1)
 
       end
-      it 'I see each tenant in that apartment and their attributes' do 
-        visit "/apartments/#{@apartment_1.id}/tenants"
-
+      it 'I see the tenant with that id including the tenants attributes' do 
+        visit "tenants/#{@tenant_1.id}"
         expect(page).to have_content(@tenant_1.tenant_name)
         expect(page).to have_content(@tenant_1.income)
-        expect(page).to have_content(@tenant_2.tenant_name)
-        expect(page).to have_content(@tenant_3.tenant_name)
-
+        expect(page).to have_content(@tenant_1.pets)
+        expect(page).to have_content(@tenant_1.occupation)
+        expect(page).to have_content(@tenant_1.rent_price)
       end
-
-      
-
     end
   end
 end
