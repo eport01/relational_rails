@@ -1,0 +1,14 @@
+<ul>
+  <li><a href="/apartments">Apartment List</a></li>
+  <li><a href="/tenants">Tenant List</a></li>
+  <li><a href="/apartments/<%= @apartment.id %>/tenants" >Tenants for this Apartment</a></li>
+
+</ul>
+<h1><%= @apartment.apt_name %></h1>
+<p>Washer/Dryer In-Unit? <%= @apartment.has_wd %></p>
+<p>Total Units: <%= @apartment.unit_count %></p>
+<p>City: <%= @apartment.city %></p>
+<p>State: <%= @apartment.state %></p>
+<p>Pet Friendly? <%= @apartment.pet_friendly %></p>
+<p>Tenants: <%= @apartment.tenants.length %></p>
+

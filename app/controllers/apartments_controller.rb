@@ -1,6 +1,7 @@
 class ApartmentsController < ApplicationController
   def index
-    @apartments = ['Apartment 1', 'Apartment 2', 'Apartment 3']
+    @apartments= Apartment.all  
+    @apartments.order(:created_at)
   end
 
   def new 
@@ -23,4 +24,9 @@ class ApartmentsController < ApplicationController
 
     redirect_to '/apartments'
   end
+
+  def show 
+    @apartment = Apartment.find(params[:id])
+  end
+
 end

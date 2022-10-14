@@ -1,5 +1,9 @@
+<p><a href="/tenants">Tenant List</a></p>
 <h1>Apartments List</h1>
 
 <% @apartments.each do |apartment| %>
-  <h3><%= apartment %></h3>
+  <p><h3><a href="/apartments/<%= apartment.id %>"> <%= apartment.apt_name %> </a></h3></p>
+  <%= apartment.created_at %>
+
 <% end %>
+
