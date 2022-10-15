@@ -29,4 +29,24 @@ class ApartmentsController < ApplicationController
     @apartment = Apartment.find(params[:id])
   end
 
+  def edit 
+    @apartment = Apartment.find(params[:id])
+  end
+
+  def update 
+    apartment = Apartment.find(params[:id])
+    apartment.update({
+      apt_name: params[:apartment][:apt_name],
+      has_wd: params[:apartment][:has_wd],
+      unit_count: params[:apartment][:unit_count],
+      city: params[:apartment][:city],
+      state: params[:apartment][:state],
+      pet_friendly: params[:apartment][:pet_friendly],
+    })
+    apartment.save 
+    redirect_to "/apartments/#{apartment.id}"
+
+  end
+
+
 end
