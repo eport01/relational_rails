@@ -32,6 +32,14 @@ RSpec.describe 'apartments index page', type: :feature do
         expect(page).to have_content(@apartment_3.created_at)
 
       end
+
+      it 'A link takes me to a form to fill out to enter a new apartment and its attributes' do 
+        visit '/apartments'
+        click_on('New Apartment')
+        expect(current_path).to eq("/apartments/new")
+
+
+      end
     end
 
   end
