@@ -6,6 +6,12 @@ RSpec.describe 'apartments new page', type: :feature do
       it 'i see a form to create a new record' do 
         visit '/apartments/new'
         expect(page).to have_content('Apartment Name:')
+        expect(page).to have_content('Washer and Dryer In-Unit?')
+        expect(page).to have_content('City:')
+        expect(page).to have_content('State')
+        expect(page).to have_content('Pet Friendly?')
+
+
 
       end
 
@@ -43,7 +49,6 @@ RSpec.describe 'apartments new page', type: :feature do
 
         it 'can be redirected to apartments page where the user can see the new record' do 
           visit '/apartments'
-          save_and_open_page
           expect(page).to have_content('Haunted House')
         end        
       end 
