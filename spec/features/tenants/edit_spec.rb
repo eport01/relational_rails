@@ -19,7 +19,7 @@ RSpec.describe 'tenants update page' do
       visit "/tenants/#{@tenant_1.id}/edit"
       fill_in :tenant_name, with: 'Stevie Nicks'
       fill_in :income, with: 100000
-      # choose  :pets, with: true   
+      select('true', from: :pets)     
       fill_in :occupation, with: 'singer'
       fill_in :rent_price, with: 2000
       click_button 'Update this Tenant'

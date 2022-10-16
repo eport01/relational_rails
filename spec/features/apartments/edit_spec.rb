@@ -15,11 +15,11 @@ RSpec.describe 'apartments edit page' do
         @apartment_1 = Apartment.create!(apt_name: "Riverview Apartments", has_wd: true, unit_count: 100, city: "Saint Paul", state: "MN", pet_friendly: true)
         visit "/apartments/#{@apartment_1.id}/edit"
         fill_in :apt_name, with: 'Riverview'
-        # choose 'wdyes' 
+        select('true', from: :has_wd)
         fill_in :unit_count, with: 150
         fill_in :city, with: 'Saint Paul'
         fill_in :state, with: 'MN' 
-        # choose 'petyes'
+        select('true', from: :pet_friendly)
         click_button 'Edit Apartment'
       end
     

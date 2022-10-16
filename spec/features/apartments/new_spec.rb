@@ -31,7 +31,6 @@ RSpec.describe 'apartments new page', type: :feature do
 
         it 'can enter a new record and hit submit' do 
           expect(current_path).to eq("/apartments")
-          save_and_open_page
         end
 
         it 'can be redirected to apartments page where the user can see the new record' do 
