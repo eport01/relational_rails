@@ -40,6 +40,17 @@ RSpec.describe 'Apartments tenants index page' do
         expect(current_path).to eq("/tenants/#{@tenant_1.id}/edit")
 
       end
+      
+      it 'i can click on a link to delete tenant and return to index page where tenant is not listed' do 
+        visit "/apartments/#{@apartment_1.id}/tenants"
+        expect(page).to have_content("#{@tenant_1.tenant_name}")
+        click_button "Delete #{@tenant_1.tenant_name}"
+        expect(current_path).to eq('/tenants')
+        expect(page).to_not have_content("#{@tenant_1.tenant_name}")
+
+      end
+
+
 
     end
   end
