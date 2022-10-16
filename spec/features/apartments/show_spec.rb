@@ -41,14 +41,16 @@ RSpec.describe 'apartments show page', type: :feature do
         expect(current_path).to eq("/apartments/#{@apartment_1.id}/edit")
       end 
 
-      it 'i see a link to delete parent' do 
+      it 'i see a link to delete parent, i click on it and it deletes apt' do 
         visit "/apartments/#{@apartment_1.id}"
         expect(page).to have_content("Tenants: #{@apartment_1.tenants.length}")
 
         click_button "Delete #{@apartment_1.apt_name}"
         expect(current_path).to eq('/apartments')
-        save_and_open_page
+        expect(page).to_not have_content("#{@apartment_1.apt_name}")
       end
+
+   
 
     end
 
