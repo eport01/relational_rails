@@ -1,7 +1,7 @@
 class ApartmentTenantsController < ApplicationController
   def index 
     @apartment = Apartment.find(params[:apartment_id])
-    @tenants = @apartment.tenants  
+    @tenants = @apartment.tenants.order(:tenant_name)  
   end
 
   def new 

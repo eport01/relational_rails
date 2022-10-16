@@ -29,6 +29,11 @@ RSpec.describe 'Apartments tenants index page' do
         # expect(current_path).to eq("/apartments/#{@apartment_1.id}/tenants")
       end
 
+      it 'the tenants of an apartment are sorted in alphabetical order by name' do 
+        visit "/apartments/#{@apartment_1.id}/tenants"
+        expect(@tenant_3.tenant_name).to appear_before(@tenant_2.tenant_name)
+      end
+
     end
   end
 end
