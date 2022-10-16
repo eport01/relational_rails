@@ -1,6 +1,8 @@
 class TenantsController < ApplicationController
   def index 
     @tenants = Tenant.all 
+    # require 'pry'; binding.pry
+    @tenants = Tenant.where(pets: true)
   end
 
   def create 
