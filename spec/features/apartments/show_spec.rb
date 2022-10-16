@@ -35,10 +35,22 @@ RSpec.describe 'apartments show page', type: :feature do
         expect(current_path).to eq("/apartments/#{@apartment_1.id}/tenants")
       end
 
-      it 'I see a link to update the apartment'
-      visit "/apartments/#{@apartment_1.id}"
-      click_on('Update this Apartment')
-      expect(current_path).to eq("/apartments/#{@apartment_1.id}/edit")
+      it 'I see a link to update the apartment' do 
+        visit "/apartments/#{@apartment_1.id}"
+        click_on('Update this Apartment')
+        expect(current_path).to eq("/apartments/#{@apartment_1.id}/edit")
+      end 
+
+      it 'i see a link to delete parent, i click on it and it deletes apt' do 
+        visit "/apartments/#{@apartment_1.id}"
+        expect(page).to have_content("Tenants: #{@apartment_1.tenants.length}")
+
+        click_button "Delete #{@apartment_1.apt_name}"
+        expect(current_path).to eq('/apartments')
+        expect(page).to_not have_content("#{@apartment_1.apt_name}")
+      end
+
+   
 
     end
 

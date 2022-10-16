@@ -24,9 +24,33 @@ RSpec.describe 'Apartments tenants index page' do
 
       it 'I see a link to add a new tenant to this apartment' do 
         visit "/apartments/#{@apartment_1.id}/tenants"
-        click_button 'Create Tenant'
-        expect(current_path).to eq("/apartments/#{@apartment_1.id}/tenants")
+        expect(page).to have_content('Create Tenant')
+        click_link 'Create Tenant'
+        # expect(current_path).to eq("/apartments/#{@apartment_1.id}/tenants")
       end
+
+      xit 'the tenants of an apartment are sorted in alphabetical order by name' do 
+        visit "/apartments/#{@apartment_1.id}/tenants"
+        expect(@tenant_3.tenant_name).to appear_before(@tenant_2.tenant_name)
+      end
+
+      it 'there is a link to edit the tenants info and it leads me to that tenants edit page' do 
+        visit "/apartments/#{@apartment_1.id}/tenants"
+        click_on("Edit #{@tenant_1.tenant_name}'s Info")
+        expect(current_path).to eq("/tenants/#{@tenant_1.id}/edit")
+
+      end
+      
+      it 'i can click on a link to delete tenant and return to index page where tenant is not listed' do 
+        visit "/apartments/#{@apartment_1.id}/tenants"
+        expect(page).to have_content("#{@tenant_1.tenant_name}")
+        click_button "Delete #{@tenant_1.tenant_name}"
+        expect(current_path).to eq('/tenants')
+        expect(page).to_not have_content("#{@tenant_1.tenant_name}")
+
+      end
+
+
 
     end
   end

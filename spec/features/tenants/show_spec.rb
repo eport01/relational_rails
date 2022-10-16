@@ -13,12 +13,24 @@ RSpec.describe 'tenants show page', type: :feature do
 
       end
       it 'I see the tenant with that id including the tenants attributes' do 
-        visit "tenants/#{@tenant_1.id}"
+        visit "/tenants/#{@tenant_1.id}"
         expect(page).to have_content(@tenant_1.tenant_name)
         expect(page).to have_content(@tenant_1.income)
         expect(page).to have_content(@tenant_1.pets)
         expect(page).to have_content(@tenant_1.occupation)
         expect(page).to have_content(@tenant_1.rent_price)
+      end
+
+      it 'i can click a link to delete tenant and am redirected to index page where i dont see this tenant' do 
+        visit "/tenants/#{@tenant_1.id}"
+        expect(page).to have_content(@tenant_1.tenant_name)
+        click_button "Delete #{@tenant_1.tenant_name}"
+        expect(current_path).to eq('/tenants')
+        visit '/tenants'
+        expect(page).to_not have_content("#{@tenant_1.tenant_name}")
+
+
+
       end
     end
   end

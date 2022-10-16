@@ -15,4 +15,14 @@ Rails.application.routes.draw do
   get '/apartments/:apartment_id/tenants', to: 'apartment_tenants#index'
   get '/apartments/:apartment_id/tenants/new', to: 'apartment_tenants#new'
   post '/apartments/:apartment_id/tenants', to: 'apartment_tenants#create'
+
+  get '/tenants/:id/edit', to: 'tenants#edit'
+  patch '/tenants/:id', to: 'tenants#update'
+
+  delete '/apartments/:apartment_id', to: 'apartments#destroy'
+  delete '/tenants/:id', to: 'tenants#destroy'
+
+  # patch '/apartments/:apartment_id/tenants', to: 'apartment_tenants#alphabetical'
+
+
 end
