@@ -47,6 +47,17 @@ RSpec.describe 'apartments index page', type: :feature do
         expect(current_path).to eq("/apartments/#{@apartment_2.id}/edit")
 
       end
+
+      it 'next to every apartment there is a link to delete that apartment, this link takes me to index page where apt no longer exists' do 
+        apartment_1 = Apartment.create!(apt_name: "Riverview Apartments", has_wd: true, unit_count: 100, city: "Saint Paul", state: "MN", pet_friendly: true)
+        visit '/apartments'
+        expect(page).to have_content("#{apartment_1.apt_name}")
+        click_button "Delete #{apartment_1.apt_name}"
+        expect(current_path).to eq('/apartments')
+        expect(page).to_not have_content("#{@apartment_1.apt_name}")
+
+      end
+
     end
 
   end

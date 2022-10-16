@@ -6,6 +6,7 @@
   <p><h3><a href="/apartments/<%= apartment.id %>"> <%= apartment.apt_name %> </a></h3></p>
   <%= apartment.created_at %>
   <p><a href="/apartments/<%= apartment.id %>/edit">Edit <%= apartment.apt_name %>'s Info </a></p>
+  <%= button_to "Delete #{apartment.apt_name}", "/apartments/#{apartment.id}", method: :delete %>
 
 <% end %>
 
