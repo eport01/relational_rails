@@ -46,6 +46,7 @@ RSpec.describe 'apartments show page', type: :feature do
         expect(page).to have_content("Tenants: #{@apartment_1.tenants.length}")
 
         click_button "Delete #{@apartment_1.apt_name}"
+        expect(current_path).to eq('/apartments')
         save_and_open_page
       end
 
