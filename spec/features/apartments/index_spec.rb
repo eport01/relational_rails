@@ -26,11 +26,11 @@ RSpec.describe 'apartments index page', type: :feature do
         tenant_3 = apartment_1.tenants.create!(tenant_name: "John McVie", income: 450000, pets: true, occupation: "guitarist", rent_price: 4000, apartment_id: 1)
         visit '/apartments'
         
-        expect("Riverview Apartments").to appear_before("Cruze Apartments")
+        expect("Cruze Apartments").to appear_before("Riverview Apartments")
         expect(page).to have_content(@apartment_1.created_at)
         expect(page).to have_content(@apartment_2.created_at)
         expect(page).to have_content(@apartment_3.created_at)
-
+        
       end
 
       it 'A link takes me to a form to fill out to enter a new apartment and its attributes' do 
@@ -38,6 +38,13 @@ RSpec.describe 'apartments index page', type: :feature do
         click_on('New Apartment')
         expect(current_path).to eq("/apartments/new")
 
+
+      end
+
+      it 'next to every apartment there is an edit button that takes user to apartments edit page' do 
+        visit '/apartments'
+        click_on("Edit #{@apartment_2.apt_name}'s Info")
+        expect(current_path).to eq("/apartments/#{@apartment_2.id}/edit")
 
       end
     end
