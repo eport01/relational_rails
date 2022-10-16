@@ -1,4 +1,42 @@
-<form action='/apartments/:id/tenants'  method="post">
+<%= form_with(url: "/apartments/#{@apartment.id}/tenants", method: "post", local: true) do |form|%>
+  <table> 
+    <tr> 
+      <td> <%= form.label :tenant_name  %></td>
+      <td> <%= form.text_field :tenant_name %></td>
+
+    </tr>
+    <tr> 
+      <td> <%= form.label :income  %></td>
+      <td> <%= form.text_field :income %></td>
+
+    </tr>
+
+    <tr> 
+      <td> <%= form.label :pets  %></td>
+      <td> <%= form.select(:pets, options_for_select([true, false])) %></td>
+
+    </tr>
+
+    <tr> 
+      <td> <%= form.label :occupation  %></td>
+      <td> <%= form.text_field :occupation %></td>
+
+    </tr>
+
+    <tr> 
+      <td> <%= form.label :rent_price  %></td>
+      <td> <%= form.text_field :rent_price %></td>
+
+    </tr>
+
+    <tr>
+      <td> <%= form.submit "Create Tenant" %></td>
+  
+    </tr>
+  </table>
+<%end%>
+
+<!--form action='/apartments/:id/tenants'  method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <p><h1>Create a new tenant:</h1></p>
 

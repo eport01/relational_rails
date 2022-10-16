@@ -13,8 +13,7 @@ RSpec.describe 'Apartment tenant creation' do
           fill_in 'tenant[occupation]', with: 'Computers'
           fill_in 'tenant[rent_price]', with: 8000
           click_button 'Create Tenant'
-          
-          @new_tenant_id = Tenant.last.id 
+          # @new_tenant_id = Tenant.last.id 
         end
 
         it 'i click button and am sent to that apartment tenants index page' do 

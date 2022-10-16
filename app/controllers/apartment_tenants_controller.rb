@@ -1,24 +1,24 @@
 class ApartmentTenantsController < ApplicationController
   def index 
-    @apartment = Apartment.find(params[:id])
+    @apartment = Apartment.find(params[:apartment_id])
     @tenants = @apartment.tenants  
   end
 
   def new 
-    
+    @apartment = Apartment.find(params[:apartment_id])
   end
 
   def create 
-    tenant = Tenant.new({
-      tenant_name: params[:tenant][:tenant_name],
-      income: params[:tenant][:income],
-      pets: params[:tenant][:pets],
-      occupation: params[:tenant][:occupation],
-      rent_price: params[:tenant][:rent_price]
+    @apartment = Apartment.find(params[:apartment_id])
+    tenant = Tenant.create!({
+      tenant_name: params[:tenant_name],
+      income: params[:income],
+      pets: params[:pets],
+      occupation: params[:occupation],
+      rent_price: params[:rent_price],
+      apartment_id: params[:apartment_id]
 
     })
-
-    tenant.save 
 
     redirect_to "/apartments/#{@apartment.id}/tenants"
   end

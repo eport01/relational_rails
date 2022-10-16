@@ -1,4 +1,48 @@
-<form action = "/apartments/<%= @apartment.id %>" method = "post">
+<%= form_with(url:  "/apartments/#{@apartment.id}", method: "patch", local: true) do |form|%>
+  <table> 
+    <tr> 
+      <td> <%= form.label :apt_name  %></td>
+      <td> <%= form.text_field :apt_name %></td>
+
+    </tr>
+    <tr> 
+      <td> <%= form.label :has_wd  %></td>
+      <td> <%= form.select(:has_wd, options_for_select([true, false])) %></td>
+
+    </tr>
+
+     <tr> 
+      <td> <%= form.label :unit_count  %></td>
+      <td> <%= form.text_field :unit_count %></td>
+
+    </tr>
+
+    <tr> 
+      <td> <%= form.label :city  %></td>
+      <td> <%= form.text_field :city %></td>
+
+    </tr>
+
+    <tr> 
+      <td> <%= form.label :state  %></td>
+      <td> <%= form.text_field :state %></td>
+
+    </tr>
+
+    <tr> 
+      <td> <%= form.label :pet_friendly  %></td>
+      <td> <%= form.select(:pet_friendly, options_for_select([true, false])) %></td>
+
+    </tr>
+
+    <tr>
+      <td> <%= form.submit "Edit Apartment" %></td>
+  
+    </tr>
+  </table>
+<%end%>
+
+<!--form action = "/apartments/<%= @apartment.id %>" method = "patch">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
   <input type="hidden" name="_method" value="PATCH" />
 
