@@ -10,4 +10,5 @@
 <p>Pets?<%= @tenant.pets %></p>
 <p>Occupation:<%= @tenant.occupation %></p>
 <p>Rent Price:<%= @tenant.rent_price %></p>
+<%= button_to "Delete #{@tenant.tenant_name}", "/tenants/#{@tenant.id}", method: :delete %>
 

@@ -48,4 +48,10 @@ class TenantsController < ApplicationController
 
   end
 
+  def destroy
+    tenant = Tenant.find(params[:id])
+    tenant.destroy
+    redirect_to '/tenants'
+  end
+
 end
