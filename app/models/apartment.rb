@@ -1,3 +1,6 @@
 class Apartment < ApplicationRecord
-  has_many :tenants
+  has_many :tenants, dependent: :destroy 
+
+   
+
 end

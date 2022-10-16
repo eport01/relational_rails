@@ -12,4 +12,5 @@
 <p>State: <%= @apartment.state %></p>
 <p>Pet Friendly? <%= @apartment.pet_friendly %></p>
 <p>Tenants: <%= @apartment.tenants.length %></p>
+<%= button_to "Delete #{@apartment.apt_name}", "/apartments/#{@apartment.id}", method: :delete %>
 

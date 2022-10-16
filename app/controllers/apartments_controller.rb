@@ -48,5 +48,12 @@ class ApartmentsController < ApplicationController
 
   end
 
+  def destroy
+    apartment = Apartment.find(params[:apartment_id])
+
+    apartment.destroy
+    redirect_to '/apartments'
+  end
+
 
 end

@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   get '/tenants/:id/edit', to: 'tenants#edit'
   patch '/tenants/:id', to: 'tenants#update'
 
+  delete '/apartments/:apartment_id', to: 'apartments#destroy'
+
+
   # patch '/apartments/:apartment_id/tenants', to: 'apartment_tenants#alphabetical'
 
 
