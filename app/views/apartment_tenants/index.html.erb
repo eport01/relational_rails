@@ -1,6 +1,7 @@
 <ul>
   <li><a href="/apartments">Apartment List</a></li>
   <li><a href="/tenants">Tenant List</a></li>
+  <li><a href="/apartments/<%= @apartment.id %>/tenants/new">Create Tenant</a></li>
 </ul>
 <h1><%= @apartment.apt_name %></h1>
 <% @tenants.each do |tenant|%>

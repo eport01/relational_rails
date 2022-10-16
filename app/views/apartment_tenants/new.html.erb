@@ -1,0 +1,30 @@
+<form action='/apartments/:id/tenants'  method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p><h1>Create a new tenant:</h1></p>
+
+  <label for='tenant[tenant_name]'>Tenant Name:</label><br>
+  <input type='text' name='tenant[tenant_name]'/><br/>
+
+ 
+  <label for='tenant[income]'>Monthly Income: </label><br>
+  <input type='text' name='tenant[income]'/><br/>
+
+  <label for='tenant[pets]'>Do you have any pets?</label><br>
+  <input type="radio" id="tenant_petyes" name="tenant[pets]" value="Yes">
+  <label for="tenant_petyes">Yes</label><br>
+  <input type="radio" id="tenant_petno" name="tenant[pets]" value="No">
+  <label for="tenant_petno">No</label><br>
+
+  <label for='tenant[occupation]'>Occupation:</label><br>
+  <input type='text' name='tenant[occupation]'/><br/>
+
+  <label for='tenant[rent_price]'>Rent Price:</label><br>
+  <input type='text' name='tenant[rent_price]'/><br/>
+
+  <input type='submit' value= 'Create Tenant'/>
+</form>
+
+<ul>
+  <li><a href="/apartments">Apartment List</a></li>
+  <li><a href="/tenants">Tenant List</a></li>
+</ul>

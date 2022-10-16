@@ -4,7 +4,7 @@ class TenantsController < ApplicationController
   end
 
   def create 
-    tenant = tenant.new({
+    tenant = Tenant.new({
       tenant_name: params[:tenant][:tenant_name],
       income: params[:tenant][:income],
       pets: params[:tenant][:pets],
@@ -15,7 +15,12 @@ class TenantsController < ApplicationController
 
     tenant.save 
 
-    redirect_to '/tenants'
+    redirect_to "/apartments/#{apartment.id}/tenants"
+
+  end
+
+  def new 
+    
   end
 
   def show 

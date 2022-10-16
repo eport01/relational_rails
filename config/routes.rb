@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get '/tenants', to: 'tenants#index'
   get '/tenants/:id', to: 'tenants#show'
-  get '/apartments/:apartment_id/tenants', to: 'apartment_tenants#index'
-
+  get '/apartments/:id/tenants', to: 'apartment_tenants#index'
+  get '/apartments/:id/tenants/new', to: 'apartment_tenants#new'
+  post '/apartments/:id/tenants', to: 'apartment_tenants#create'
 end
