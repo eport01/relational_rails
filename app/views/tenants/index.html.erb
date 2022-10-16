@@ -5,6 +5,7 @@
 
 <% @tenants.each do |tenant| %>
   <p><h3><a href="/tenants/<%= tenant.id %>"> <%= tenant.tenant_name %> </a> </h3></p>
+  <p><a href="/tenants/<%= tenant.id %>/edit">Edit <%= tenant.tenant_name %>'s Info </a></p>
 
 <% end %>
 

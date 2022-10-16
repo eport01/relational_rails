@@ -24,6 +24,17 @@ RSpec.describe 'tenants index page', type: :feature do
         expect(page).to have_content('Stevie Nicks')
         expect(page).to_not have_content('Mick Fleetwood')  
       end
+      
+      it 'there is a link to edit the tenants info and it leads me to that tenants edit page' do 
+        apartment_1 = Apartment.create!(apt_name: "Riverview Apartments", has_wd: true, unit_count: 100, city: "Saint Paul", state: "MN", pet_friendly: true)        
+
+        tenant_1 = apartment_1.tenants.create!(tenant_name: "Stevie Nicks", income: 100000, pets: true, occupation: "singer", rent_price: 2500, apartment_id: 1)
+        visit '/tenants'
+        click_on("Edit #{tenant_1.tenant_name}'s Info")
+        expect(current_path).to eq("/tenants/#{tenant_1.id}/edit")
+
+      end
+
 
     end
 
