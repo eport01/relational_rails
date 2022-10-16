@@ -4,7 +4,7 @@
 <h1>Tenants List</h1>
 
 <% @tenants.each do |tenant| %>
-  <p><h3><%= tenant.tenant_name %></h3></p>
+  <p><h3><a href="/tenants/<%= tenant.id %>"> <%= tenant.tenant_name %> </a> </h3></p>
 
 <% end %>
 
