@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   get '/', to: 'welcome#index'
   get '/apartments', to: 'apartments#index'
   get '/apartments/new', to: 'apartments#new'
-
+  
   get '/apartments/:id', to: 'apartments#show'
+  get '/apartments/:id/edit', to: 'apartments#edit'
+  patch '/apartments/:id', to: 'apartments#update'
   post '/apartments', to: 'apartments#create'
 
   get '/tenants', to: 'tenants#index'

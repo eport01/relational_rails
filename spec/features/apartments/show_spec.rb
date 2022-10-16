@@ -34,6 +34,12 @@ RSpec.describe 'apartments show page', type: :feature do
         click_on('Tenants for this Apartment')
         expect(current_path).to eq("/apartments/#{@apartment_1.id}/tenants")
       end
+
+      it 'I see a link to update the apartment'
+      visit "/apartments/#{@apartment_1.id}"
+      click_on('Update this Apartment')
+      expect(current_path).to eq("/apartments/#{@apartment_1.id}/edit")
+
     end
 
 
