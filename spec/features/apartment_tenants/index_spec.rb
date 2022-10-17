@@ -9,7 +9,7 @@ RSpec.describe 'Apartments tenants index page' do
         )
         @tenant_1 = @apartment_1.tenants.create!(tenant_name: "Stevie Nicks", income: 100000, pets: true, occupation: "singer", rent_price: 2500, apartment_id: 1)
         @tenant_2 = @apartment_1.tenants.create!(tenant_name: "Mick Fleetwood", income: 650000, pets: false, occupation: "drummer", rent_price: 3600, apartment_id: 1)
-        @tenant_3 = @apartment_1.tenants.create!(tenant_name: "John McVie", income: 450000, pets: true, occupation: "guitarist", rent_price: 4000, apartment_id: 1)
+        @tenant_3 = @apartment_1.tenants.create!(tenant_name: "John McVie", income: 1500, pets: true, occupation: "guitarist", rent_price: 4000, apartment_id: 1)
 
       end
       it 'I see each tenant in that apartment and their attributes' do 
@@ -53,6 +53,14 @@ RSpec.describe 'Apartments tenants index page' do
 
       it 'i can input a number and it will return only tenants with rent_price greater than that number' do 
         visit "/apartments/#{@apartment_1.id}/tenants"
+        expect(page).to have_content("#{@tenant_3.tenant_name}")
+        expect(page).to have_content("#{@tenant_2.tenant_name}")
+
+        fill_in :search, with: '2000'
+        click_button("Search by Income")
+        expect(current_path).to eq("/apartments/#{@apartment_1.id}/tenants")
+        expect(page).to_not have_content("#{@tenant_3.tenant_name}")
+        expect(page).to have_content("#{@tenant_2.tenant_name}")
 
       end
 
