@@ -4,6 +4,13 @@
   <li><a href="/apartments/<%= @apartment.id %>/tenants/new">Create Tenant</a></li>
 </ul>
 <h1><%= @apartment.apt_name %></h1>
+
+<% if params[:sort] == "true" %>
+  <%= link_to "Sort Tenants Alphabetically", "#{tenants_path}?sort= false"%>
+  <% @tenants = @tenants.sort_by {|tenant| tenant.tenant_name}%>
+
+<%end %>
+
 <% @tenants.each do |tenant|%>
   <p><h3><%= tenant.tenant_name%></h3></p>
   <p>Income: <%= tenant.income%></p>
@@ -14,4 +21,8 @@
   <%= button_to "Delete #{tenant.tenant_name}", "/tenants/#{tenant.id}", method: :delete %>
 
 <% end %>
+
+<%# <%= link_to t('tenant_name'), url_for(sort: "tenants.tenant_name")%> 
+
+<%# <%= button_to "Sort Tenants", "/apartments/#{@apartment.id}/tenants", method: :sort %> 
 <%# <%= link_to "Sort Alphabetically", edit_tenant_path(:id)(@tenant.apartment_id, sort_by: :tenant_name)%> 
