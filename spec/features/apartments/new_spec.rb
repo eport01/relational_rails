@@ -18,6 +18,15 @@ RSpec.describe 'apartments new page', type: :feature do
           @apartment_1 = Apartment.create!(apt_name: "Riverview Apartments", has_wd: true, unit_count: 100, city: "Saint Paul", state: "MN", pet_friendly: true)
           @apartment_2 = Apartment.create!(apt_name: "Cruze Apartments", has_wd: true, unit_count: 50, city: "Denver", state: "CO", pet_friendly: true)
           @apartment_3 = Apartment.create!(apt_name: "The Walter", has_wd: false, unit_count: 35, city: "Aurora", state: "CO", pet_friendly: false)
+          # visit '/apartments/new'
+          # fill_in :apt_name, with: 'Haunted House'
+          # choose :wdno 
+          # fill_in :unit_count, with: 180
+          # fill_in :city, with: 'Fear Town'
+          # fill_in :state, with: 'CA' 
+          # choose :petyes
+          # click_button 'Submit'
+
           visit '/apartments/new'
           fill_in 'apartment[apt_name]', with: 'Haunted House'
           choose 'wdno' 

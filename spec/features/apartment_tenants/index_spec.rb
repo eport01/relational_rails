@@ -51,6 +51,12 @@ RSpec.describe 'Apartments tenants index page' do
 
       end
 
+      it 'i can input a number and it will return only tenants with rent_price greater than that number' do 
+        visit "/apartments/#{@apartment_1.id}/tenants"
+
+      end
+
+
 
 
     end
