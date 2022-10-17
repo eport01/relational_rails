@@ -1,7 +1,11 @@
 class ApartmentTenantsController < ApplicationController
-  def index 
+  def index
     @apartment = Apartment.find(params[:apartment_id])
     @tenants = @apartment.tenants  
+    if params[:sort] == "true" 
+      @tenants = @tenants.sort_by {|tenant| tenant.tenant_name}
+    end 
+
   end
 
   # def order_list(sort_by)

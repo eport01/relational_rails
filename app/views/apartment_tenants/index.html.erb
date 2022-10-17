@@ -5,11 +5,11 @@
 </ul>
 <h1><%= @apartment.apt_name %></h1>
 
-<% if params[:sort] == "true" %>
-  <%= link_to "Sort Tenants Alphabetically", "#{tenants_path}?sort= false"%>
-  <% @tenants = @tenants.sort_by {|tenant| tenant.tenant_name}%>
+<%# <% if params[:sort] == "true" %>
+  <%= link_to "Sort Tenants Alphabetically", "/apartments/#{@apartment.id}/tenants/?sort=true"%>
+  <%# <% @tenants = @tenants.sort_by {|tenant| tenant.tenant_name}%> 
 
-<%end %>
+<%# <%end %> 
 
 <% @tenants.each do |tenant|%>
   <p><h3><%= tenant.tenant_name%></h3></p>
