@@ -31,7 +31,7 @@ RSpec.describe 'Apartments tenants index page' do
 
       it 'the tenants of an apartment can be sorted in alphabetical order by name' do 
         visit "/apartments/#{@apartment_1.id}/tenants"
-        click_button("Sort Tenants")
+        click_link("Sort Tenants Alphabetically")
         expect(@tenant_3.tenant_name).to appear_before(@tenant_2.tenant_name)
       end
 

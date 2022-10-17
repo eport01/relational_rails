@@ -3,7 +3,7 @@ class ApartmentTenantsController < ApplicationController
     @apartment = Apartment.find(params[:apartment_id])
     @tenants = @apartment.tenants  
     if params[:sort] == "true" 
-      @tenants = @tenants.sort_by {|tenant| tenant.tenant_name}
+      @tenants = @tenants.sort_by{|tenant| tenant.tenant_name}
     end 
 
   end
