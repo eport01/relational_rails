@@ -28,9 +28,6 @@ RSpec.describe 'tenants show page', type: :feature do
         expect(current_path).to eq('/tenants')
         visit '/tenants'
         expect(page).to_not have_content("#{@tenant_1.tenant_name}")
-
-
-
       end
     end
   end

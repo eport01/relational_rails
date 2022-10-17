@@ -29,8 +29,9 @@ RSpec.describe 'Apartments tenants index page' do
         # expect(current_path).to eq("/apartments/#{@apartment_1.id}/tenants")
       end
 
-      xit 'the tenants of an apartment are sorted in alphabetical order by name' do 
+      it 'the tenants of an apartment can be sorted in alphabetical order by name' do 
         visit "/apartments/#{@apartment_1.id}/tenants"
+        click_link("Sort Tenants Alphabetically")
         expect(@tenant_3.tenant_name).to appear_before(@tenant_2.tenant_name)
       end
 
@@ -49,6 +50,12 @@ RSpec.describe 'Apartments tenants index page' do
         expect(page).to_not have_content("#{@tenant_1.tenant_name}")
 
       end
+
+      it 'i can input a number and it will return only tenants with rent_price greater than that number' do 
+        visit "/apartments/#{@apartment_1.id}/tenants"
+
+      end
+
 
 
 

@@ -9,7 +9,7 @@ RSpec.describe 'Apartment tenant creation' do
           visit "/apartments/#{@apartment_1.id}/tenants/new"
           fill_in :tenant_name, with: 'Steve Jobs'
           fill_in :income, with: 100000000
-          # choose  :pets, with: true   
+          select('true', from: :pets)     
           fill_in :occupation, with: 'Computers'
           fill_in :rent_price, with: 8000
           click_button 'Create Tenant'

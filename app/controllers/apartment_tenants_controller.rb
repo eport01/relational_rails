@@ -1,16 +1,12 @@
 class ApartmentTenantsController < ApplicationController
-  def index 
+  def index
     @apartment = Apartment.find(params[:apartment_id])
     @tenants = @apartment.tenants  
-  end
+    if params[:sort] == "true" 
+      @tenants = @tenants.sort_by{|tenant| tenant.tenant_name}
+    end 
 
-  # def order_list(sort_by)
-  #   if sort_by == :tenant_name
-  #     self.tenants.order(:tenant_name)
-  #   end
-  #   @apartment = Apartment.find(params[:apartment_id])
-  #   @tenants = @apartment.tenants.order(:tenant_name)
-  # end
+  end
 
   def new 
     @apartment = Apartment.find(params[:apartment_id])
@@ -30,7 +26,4 @@ class ApartmentTenantsController < ApplicationController
 
     redirect_to "/apartments/#{@apartment.id}/tenants"
   end
-
-
-
 end
