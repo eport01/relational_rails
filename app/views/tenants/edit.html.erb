@@ -3,6 +3,15 @@
   <li><a href="/tenants">Tenant List</a></li>
 </ul>
 <%= form_with(url:  "/tenants/#{@tenant.id}", method: "patch", local: true) do |form|%>
+<h1>Update <%=@tenant.tenant_name %></h1>
+<h3>Current Details:</h3>
+<ul>
+  <p><li>Income: <%= @tenant.income %></li></p>
+  <p><li>Pets? <%= @tenant.pets %></li></p>
+  <p><li>Occupation: <%= @tenant.occupation %></li></p>
+  <p><li>Rent Price: <%= @tenant.rent_price %></li></p>
+</ul>
+<br>
   <table> 
     <tr> 
       <td> <%= form.label :tenant_name  %></td>
@@ -33,7 +42,6 @@
 
     </tr>
     
-
     <tr>
       <td> <%= form.submit "Update this Tenant" %></td>
   
