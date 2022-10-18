@@ -13,4 +13,6 @@
 <p>Pet Friendly? <%= @apartment.pet_friendly %></p>
 <p>Tenants: <%= @apartment.tenants.length %></p>
 <%= button_to "Delete #{@apartment.apt_name}", "/apartments/#{@apartment.id}", method: :delete %>
+<br>
+<%= button_to "Home Page", "/", method: :get %>
 
