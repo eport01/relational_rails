@@ -1,12 +1,15 @@
 <ul>
   <li><a href="/apartments">Apartment List</a></li>
 </ul>
-<h1>Tenants List</h1>
+<h1>Tenants Who Are Pet Owners</h1>
+<h3>This list includes all tenants in any apartment listed in the <%= link_to "Apartment List", "/apartments" %> who own a pet.</a></h3>
 
 <% @tenants.each do |tenant| %>
-  <p><h3><a href="/tenants/<%= tenant.id %>"> <%= tenant.tenant_name %> </a> </h3></p>
+  <p><h2><a href="/tenants/<%= tenant.id %>"> <%= tenant.tenant_name %> in Apartment ID# <%= tenant.apartment_id %></a> </h2></p>
   <p><a href="/tenants/<%= tenant.id %>/edit">Edit <%= tenant.tenant_name %>'s Info </a></p>
   <%= button_to "Delete #{tenant.tenant_name}", "/tenants/#{tenant.id}", method: :delete %>
-
 <% end %>
+<br>
+<%= button_to "Home Page", "/", method: :get %>
+
 

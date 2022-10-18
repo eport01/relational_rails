@@ -1,14 +1,18 @@
 <ul>
   <li><a href="/apartments">Apartment List</a></li>
   <li><a href="/tenants">Tenant List</a></li>
-  <li><a href="/tenants/<%= @tenant.id %>/edit" >Update this Tenant</a></li>
-
 </ul>
 
 <h1><%= @tenant.tenant_name %></h1>
-<p>Income:<%= @tenant.income %></p>
-<p>Pets?<%= @tenant.pets %></p>
-<p>Occupation:<%= @tenant.occupation %></p>
-<p>Rent Price:<%= @tenant.rent_price %></p>
+<a href="/tenants/<%= @tenant.id %>/edit" >Update <%=@tenant.tenant_name %></a>
+
+<p>Income: <%= @tenant.income %></p>
+<p>Pets? <%= @tenant.pets %></p>
+<p>Occupation: <%= @tenant.occupation %></p>
+<p>Rent Price: <%= @tenant.rent_price %></p>
+<br>
+<br>
 <%= button_to "Delete #{@tenant.tenant_name}", "/tenants/#{@tenant.id}", method: :delete %>
+<br>
+<%= button_to "Home Page", "/", method: :get %>
 

@@ -1,28 +1,33 @@
 <ul>
   <li><a href="/apartments">Apartment List</a></li>
   <li><a href="/tenants">Tenant List</a></li>
-  <li><a href="/apartments/<%= @apartment.id %>/tenants/new">Create Tenant</a></li>
 </ul>
 <h1><%= @apartment.apt_name %></h1>
-
+<%= button_to "Add New Tenant to #{@apartment.apt_name}", "/apartments/#{@apartment.id}/tenants/new", method: :get %>
+<br>
   <%= link_to "Sort Tenants Alphabetically", "/apartments/#{@apartment.id}/tenants/?sort=true" %>
 
 <%= form_tag("/apartments/#{@apartment.id}/tenants", method: :get) do %>
-  <p> Only Return Tenants Who's Income Is More Than: </p>
+  <p><h3> Only Return Tenants Who's Income Is More Than: </h3></p>
   <%= text_field_tag(:search, params[:search]) %>
   <%= submit_tag ("Search by Income") %>
 <% end %>
 
 
 <% @tenants.each do |tenant|%>
-  <p><h3><%= tenant.tenant_name%></h3></p>
-  <p>Income: <%= tenant.income%></p>
-  <p>Pets? <%= tenant.pets%></p>
-  <p>Occupation: <%= tenant.occupation%></p>
-  <p>Monthly Rent: <%= tenant.rent_price%></p>
+  <p><h3><%= link_to "#{tenant.tenant_name}", "/tenants/#{tenant.id}"%></h3></p>
+  <ul>
+    <li><p>Income: <%= tenant.income%></li></p>
+    <li><p>Pets? <%= tenant.pets%></li></p>
+    <li><p>Occupation: <%= tenant.occupation%></li></p>
+    <li><p>Monthly Rent: <%= tenant.rent_price%></li></p>
+  </ul>  
   <p><a href="/tenants/<%= tenant.id %>/edit">Edit <%= tenant.tenant_name %>'s Info </a></p>
   <%= button_to "Delete #{tenant.tenant_name}", "/tenants/#{tenant.id}", method: :delete %>
 
 <% end %>
+<br>
+<%= button_to "Home Page", "/", method: :get %>
+
 
  
