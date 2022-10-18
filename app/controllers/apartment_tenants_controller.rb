@@ -6,8 +6,8 @@ class ApartmentTenantsController < ApplicationController
       @tenants = @tenants.order(:tenant_name)
       # @tenants = @tenants.sort_by{|tenant| tenant.tenant_name}
     elsif params[:search]
-      # @tenants = @tenants.where(:income > :search)
-      @tenants = @tenants.find_all{|tenant| tenant.income > params[:search].to_i}
+      @tenants = @tenants.where("income > ?", params[:search].to_i)
+      # @tenants = @tenants.find_all{|tenant| tenant.income > params[:search].to_i}
       # @tenants = @tenants.find{|tenant| tenant.income > (params[:search].to_i)}
     end 
 
