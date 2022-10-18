@@ -15,15 +15,11 @@ class ApartmentTenantsController < ApplicationController
 
   def create 
     @apartment = Apartment.find(params[:apartment_id])
-    tenant = Tenant.create!({
-      tenant_name: params[:tenant_name],
-      income: params[:income],
-      pets: params[:pets],
-      occupation: params[:occupation],
-      rent_price: params[:rent_price],
-      apartment_id: params[:apartment_id]
-
-    })
+    tenant = Tenant.create!(apt_ten_params)
     redirect_to "/apartments/#{@apartment.id}/tenants"
+  end
+private 
+  def apt_ten_params
+    params.permit(:tenant_name, :income, :pets, :occupation, :rent_price, :apartment_id)
   end
 end

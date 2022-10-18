@@ -3,6 +3,7 @@
   <li><a href="/tenants">Tenant List</a></li>
 </ul>
 <%= form_with(url:  "/apartments/#{@apartment.id}", method: "patch", local: true) do |form|%>
+  <header><h1>Update <%= @apartment.apt_name%></h1></header>
   <table> 
     <tr> 
       <td> <%= form.label :apt_name  %></td>

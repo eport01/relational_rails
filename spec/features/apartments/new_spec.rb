@@ -24,16 +24,6 @@ RSpec.describe 'apartments new page', type: :feature do
           fill_in :state, with: 'CA' 
           select('false', from: :pet_friendly)  
           click_button 'Create New Apartment'
-
-          # visit '/apartments/new'
-          # fill_in 'apartment[apt_name]', with: 'Haunted House'
-          # choose 'wdno' 
-          # fill_in 'apartment[unit_count]', with: 180
-          # fill_in 'apartment[city]', with: 'Fear Town'
-          # fill_in 'apartment[state]', with: 'CA' 
-          # choose 'petyes'
-          # click_button 'Submit'
-
         end
 
         it 'can enter a new record and hit submit' do 
