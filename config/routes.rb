@@ -22,7 +22,4 @@ Rails.application.routes.draw do
   delete '/apartments/:apartment_id', to: 'apartments#destroy'
   delete '/tenants/:id', to: 'tenants#destroy'
 
-  # patch '/apartments/:apartment_id/tenants', to: 'apartment_tenants#alphabetical'
-
-
 end
