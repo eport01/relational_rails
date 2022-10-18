@@ -1,7 +1,7 @@
 class ApartmentsController < ApplicationController
   def index
-    @apartments= Apartment.all  
-    @apartments = @apartments.order(created_at: :desc)
+    @apartments= Apartment.all.order_by_created_at  
+    # @apartments = @apartments.order(created_at: :desc)
   end
 
   def new 
