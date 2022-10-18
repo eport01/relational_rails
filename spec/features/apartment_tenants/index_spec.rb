@@ -29,8 +29,8 @@ RSpec.describe 'Apartments tenants index page' do
 
       it 'I see a link to add a new tenant to this apartment' do 
         visit "/apartments/#{@apartment_1.id}/tenants"
-        expect(page).to have_content('Create Tenant')
-        click_link 'Create Tenant'
+        expect(page).to have_content(@apartment_1.apt_name)
+        click_button "Add New Tenant to #{@apartment_1.apt_name}"
         expect(current_path).to eq("/apartments/#{@apartment_1.id}/tenants/new")
       end
 

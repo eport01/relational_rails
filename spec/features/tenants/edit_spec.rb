@@ -11,7 +11,7 @@ RSpec.describe 'tenants update page' do
     it 'when i click the link on show page it takes me to the edit page' do 
       visit "/tenants/#{@tenant_1.id}"
       expect(page).to have_content('2500')
-      click_link 'Update this Tenant'
+      click_link "Update #{@tenant_1.tenant_name}"
       expect(current_path).to eq("/tenants/#{@tenant_1.id}/edit")
     end
 
