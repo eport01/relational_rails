@@ -4,13 +4,9 @@ class ApartmentTenantsController < ApplicationController
     @tenants = @apartment.tenants  
     if params[:sort] == "true" 
       @tenants = @tenants.order(:tenant_name)
-      # @tenants = @tenants.sort_by{|tenant| tenant.tenant_name}
     elsif params[:search]
       @tenants = @tenants.where("income > ?", params[:search].to_i)
-      # @tenants = @tenants.find_all{|tenant| tenant.income > params[:search].to_i}
-      # @tenants = @tenants.find{|tenant| tenant.income > (params[:search].to_i)}
     end 
-
   end
 
   def new 
@@ -28,7 +24,6 @@ class ApartmentTenantsController < ApplicationController
       apartment_id: params[:apartment_id]
 
     })
-
     redirect_to "/apartments/#{@apartment.id}/tenants"
   end
 end
