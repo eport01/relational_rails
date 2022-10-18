@@ -1,4 +1,56 @@
-<form action="/apartments" method="post">
+<ul>
+  <li><a href="/apartments">Apartment List</a></li>
+  <li><a href="/tenants">Tenant List</a></li>
+</ul>
+<%= form_with(url:  "/apartments", method: "post", local: true) do |form|%>
+  <header><h1>Add a new Apartment</h1></header>
+
+  <table> 
+    <tr> 
+      <td> <%= form.label :apt_name  %></td>
+      <td> <%= form.text_field :apt_name %></td>
+
+    </tr>
+    <tr> 
+      <td> <%= form.label :has_wd  %></td>
+      <td> <%= form.select(:has_wd, options_for_select([true, false])) %></td>
+
+    </tr>
+
+     <tr> 
+      <td> <%= form.label :unit_count  %></td>
+      <td> <%= form.text_field :unit_count %></td>
+
+    </tr>
+
+    <tr> 
+      <td> <%= form.label :city  %></td>
+      <td> <%= form.text_field :city %></td>
+
+    </tr>
+
+    <tr> 
+      <td> <%= form.label :state  %></td>
+      <td> <%= form.text_field :state %></td>
+
+    </tr>
+
+    <tr> 
+      <td> <%= form.label :pet_friendly  %></td>
+      <td> <%= form.select(:pet_friendly, options_for_select([true, false])) %></td>
+
+    </tr>
+
+    <tr>
+      <td> <%= form.submit "Create New Apartment" %></td>
+  
+    </tr>
+  </table>
+<%end%>
+
+
+
+<!--form action="/apartments" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <p><h1>Create a new apartment:</h1></p>
 

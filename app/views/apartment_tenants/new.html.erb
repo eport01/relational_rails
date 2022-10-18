@@ -1,3 +1,7 @@
+<ul>
+  <li><a href="/apartments">Apartment List</a></li>
+  <li><a href="/tenants">Tenant List</a></li>
+</ul>
 <%= form_with(url: "/apartments/#{@apartment.id}/tenants", method: "post", local: true) do |form|%>
   <header><h1>Add a new Tenant to <%= @apartment.apt_name%></h1></header>
   <table> 

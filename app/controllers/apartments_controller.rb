@@ -8,16 +8,17 @@ class ApartmentsController < ApplicationController
   end
 
   def create
-    apartment = Apartment.new({
-      apt_name: params[:apartment][:apt_name],
-      has_wd: params[:apartment][:has_wd],
-      created_at: params[:apartment][:created_at],
-      updated_at: params[:apartment][:updated_at],
-      unit_count: params[:apartment][:unit_count],
-      city: params[:apartment][:city],
-      state: params[:apartment][:state],
-      pet_friendly: params[:apartment][:pet_friendly],
-    })
+    apartment = Apartment.new(apartments_params)
+    # ({
+    #   apt_name: params[:apartment][:apt_name],
+    #   has_wd: params[:apartment][:has_wd],
+    #   created_at: params[:apartment][:created_at],
+    #   updated_at: params[:apartment][:updated_at],
+    #   unit_count: params[:apartment][:unit_count],
+    #   city: params[:apartment][:city],
+    #   state: params[:apartment][:state],
+    #   pet_friendly: params[:apartment][:pet_friendly],
+    # })
     apartment.save
 
     redirect_to '/apartments'
@@ -33,14 +34,15 @@ class ApartmentsController < ApplicationController
 
   def update 
     apartment = Apartment.find(params[:id])
-    apartment.update({
-      apt_name: params[:apt_name],
-      has_wd: params[:has_wd],
-      unit_count: params[:unit_count],
-      city: params[:city],
-      state: params[:state],
-      pet_friendly: params[:pet_friendly],
-    })
+    apartment.update(apartments_params)
+    # ({
+    #   apt_name: params[:apt_name],
+    #   has_wd: params[:has_wd],
+    #   unit_count: params[:unit_count],
+    #   city: params[:city],
+    #   state: params[:state],
+    #   pet_friendly: params[:pet_friendly],
+    # })
     apartment.save 
     redirect_to "/apartments/#{apartment.id}"
 
@@ -51,6 +53,11 @@ class ApartmentsController < ApplicationController
 
     apartment.destroy
     redirect_to '/apartments'
+  end
+
+private
+  def apartments_params
+    params.permit(:apt_name, :has_wd, :unit_count, :city, :state, :pet_friendly)
   end
 
 
