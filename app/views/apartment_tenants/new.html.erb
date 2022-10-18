@@ -1,4 +1,5 @@
 <%= form_with(url: "/apartments/#{@apartment.id}/tenants", method: "post", local: true) do |form|%>
+  <header><h1>Add a new Tenant to <%= @apartment.apt_name%></h1></header>
   <table> 
     <tr> 
       <td> <%= form.label :tenant_name  %></td>
