@@ -5,21 +5,21 @@ class TenantsController < ApplicationController
     @tenants = Tenant.where(pets: true)
   end
 
-  def create 
-    tenant = Tenant.new({
-      tenant_name: params[:tenant][:tenant_name],
-      income: params[:tenant][:income],
-      pets: params[:tenant][:pets],
-      occupation: params[:tenant][:occupation],
-      rent_price: params[:tenant][:rent_price]
+  # def create 
+  #   tenant = Tenant.new({
+  #     tenant_name: params[:tenant][:tenant_name],
+  #     income: params[:tenant][:income],
+  #     pets: params[:tenant][:pets],
+  #     occupation: params[:tenant][:occupation],
+  #     rent_price: params[:tenant][:rent_price]
 
-    })
+  #   })
 
-    tenant.save 
+  #   tenant.save 
 
-    redirect_to "/apartments/#{apartment.id}/tenants"
+  #   redirect_to "/apartments/#{apartment.id}/tenants"
 
-  end
+  # end
 
   def new 
     

@@ -7,6 +7,12 @@
 
   <%= link_to "Sort Tenants Alphabetically", "/apartments/#{@apartment.id}/tenants/?sort=true" %>
 
+<%= form_tag("/apartments/#{@apartment.id}/tenants", method: :get) do %>
+  <p> Only Return Tenants Who's Income Is More Than: </p>
+  <%= text_field_tag(:search, params[:search]) %>
+  <%= submit_tag ("Search by Income") %>
+<% end %>
+
 
 <% @tenants.each do |tenant|%>
   <p><h3><%= tenant.tenant_name%></h3></p>

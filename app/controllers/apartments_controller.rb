@@ -1,7 +1,6 @@
 class ApartmentsController < ApplicationController
   def index
-    @apartments= Apartment.all  
-    @apartments = @apartments.order(created_at: :desc)
+    @apartments= Apartment.all.order_by_created_at  
   end
 
   def new 
@@ -9,7 +8,6 @@ class ApartmentsController < ApplicationController
   end
 
   def create
-    # require 'pry'; binding.pry
     apartment = Apartment.new({
       apt_name: params[:apartment][:apt_name],
       has_wd: params[:apartment][:has_wd],
