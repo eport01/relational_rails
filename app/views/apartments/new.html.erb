@@ -52,39 +52,3 @@
 
 
 
-<!--form action="/apartments" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <p><h1>Create a new apartment:</h1></p>
-
-  <label for='apartment[apt_name]'>Apartment Name:</label><br>
-  <input type='text' name='apartment[apt_name]'/><br/>
-
- 
-  <label for='apartment[has_wd]'>Washer and Dryer In-Unit?</label><br>
-  <input type="radio" id="wdyes" name="apartment[has_wd]" value="Yes">
-  <label for="wdyes">Yes</label><br>
-  <input type="radio" id="wdno" name="apartment[has_wd]" value="No">
-  <label for="wdno">No</label><br>
-
-  <label for='apartment[unit_count]'>How many units?</label><br>
-  <input type='number' name='apartment[unit_count]'/><br/>
-
-  <label for='apartment[city]'>City:</label><br>
-  <input type='text' name='apartment[city]'/><br/>
-
-  <label for='apartment[state]'>State:</label><br>
-  <input type='text' name='apartment[state]'/><br/>
-
-  <label for='apartment[pet_friendly]'>Pet Friendly?</label><br>
-  <input type="radio" id="petyes" name="apartment[pet_friendly]" value="Yes">
-  <label for="petyes">Yes</label><br>
-  <input type="radio" id="petno" name="apartment[pet_friendly]" value="No">
-  <label for="petno">No</label><br>
-
-  <input type='submit' value= 'Submit'/>
-</form>
-
-<ul>
-  <li><a href="/apartments">Apartment List</a></li>
-  <li><a href="/tenants">Tenant List</a></li>
-</ul>
