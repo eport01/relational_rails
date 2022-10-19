@@ -3,9 +3,9 @@ class ApartmentTenantsController < ApplicationController
     @apartment = Apartment.find(params[:apartment_id])
     @tenants = @apartment.tenants  
     if params[:sort] == "true" 
-      @tenants = @tenants.order(:tenant_name)
+      @tenants = @tenants.order_by_name
     elsif params[:search]
-      @tenants = @tenants.where("income > ?", params[:search].to_i)
+      @tenants = @tenants.search_by_income(params[:search])  
     end 
   end
 
