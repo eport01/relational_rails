@@ -4,5 +4,4 @@ class Apartment < ApplicationRecord
   def self.order_by_created_at
     order(created_at: :desc)
   end
-
 end
